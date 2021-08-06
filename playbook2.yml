@@ -1,0 +1,14 @@
+---
+- name: user
+  hosts: Ubuntu1
+  become: true
+  vars_files:
+    - ./my_vars.yml
+  tasks:
+   - name: Ping
+     ping:
+   - name: Create user
+     user:
+       name: "{{ user }}"
+       state: present
+     

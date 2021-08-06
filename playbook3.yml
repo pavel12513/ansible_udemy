@@ -1,0 +1,17 @@
+---
+- name: user
+  hosts: Ubuntu1
+  tasks:
+   - name: Preconfig block
+     block:
+      - name: Create user
+        user:
+          name: "{{ user }}"
+          state: present
+        register: out
+      - name: Install curl
+        apt:
+          name: curl
+          update-cache: yes
+     become: yes
+

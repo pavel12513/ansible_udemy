@@ -1,0 +1,12 @@
+---
+- name: user
+  hosts: Ubuntu1
+  become: yes
+  tasks:
+   - name: Ping
+     ping:
+   - name: Create user
+     user:
+       name: pavel
+       state: present
+     
